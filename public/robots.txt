@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rays-core.github.io/RAYS_website/sitemap.xml
