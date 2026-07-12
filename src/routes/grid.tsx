@@ -124,7 +124,7 @@ function GridDemo() {
         >
           <iframe
             className="absolute inset-0 h-full w-full"
-            src="https://www.youtube.com/embed/C7YIgxs8ZeY?rel=0&modestbranding=1"
+            src="https://www.youtube.com/embed/dWOPZH3d_VI?rel=0&modestbranding=1"
             title="RAYS Grid demo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
