@@ -29,5 +29,10 @@ export default defineConfig({
   },
   vite: {
     base: githubPages ? `${repoBasePath}/` : "/",
+    server: {
+      hmr: {
+        overlay: false,
+      },
+    },
   },
 });

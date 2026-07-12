@@ -17,6 +17,16 @@ const sections = [
       { to: "/docs/architecture", label: "Architecture" },
       { to: "/docs/skills", label: "Skills" },
       { to: "/docs/mcp", label: "MCP servers" },
+      { to: "/docs/spy", label: "RAYS Spy" },
+    ],
+  },
+  {
+    title: "The Grid",
+    items: [
+      { to: "/docs/grid", label: "Overview" },
+      { to: "/docs/fogr", label: "FOGR math" },
+      { to: "/docs/studio", label: "RAYS Studio" },
+      { to: "/docs/amd", label: "AMD pipeline" },
     ],
   },
   {

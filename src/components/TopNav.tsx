@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { Github } from "lucide-react";
-import { GITHUB_ORG_URL } from "@/lib/site";
 
 export function TopNav({ onInstallClick }: { onInstallClick?: () => void } = {}) {
   return (
     <header className="fixed top-0 inset-x-0 z-50 px-6 py-4">
       <nav className="mx-auto max-w-7xl glass rounded-2xl px-5 py-3 flex items-center gap-6">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group shrink-0">
           <div
             className="h-8 w-8 rounded-full"
             style={{
@@ -20,12 +19,24 @@ export function TopNav({ onInstallClick }: { onInstallClick?: () => void } = {})
           </span>
         </Link>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-4 text-sm">
+        <div className="ml-auto flex items-center gap-1 sm:gap-2 text-sm">
           <Link
             to="/agent"
-            className="hidden sm:inline-flex px-3 py-2 rounded-lg hover:bg-white/5 transition"
+            className="hidden md:inline-flex px-3 py-2 rounded-lg hover:bg-white/5 transition"
           >
-            RAYS Agent
+            Agent
+          </Link>
+          <Link
+            to="/grid"
+            className="hidden md:inline-flex px-3 py-2 rounded-lg hover:bg-white/5 transition"
+          >
+            Grid
+          </Link>
+          <Link
+            to="/spy"
+            className="hidden md:inline-flex px-3 py-2 rounded-lg hover:bg-white/5 transition"
+          >
+            Spy
           </Link>
           <Link
             to="/docs"
@@ -58,7 +69,7 @@ export function TopNav({ onInstallClick }: { onInstallClick?: () => void } = {})
             </Link>
           )}
           <a
-            href={GITHUB_ORG_URL}
+            href="https://github.com/RAYS-CORE/RAYS-CORE"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg hover:bg-white/5 transition"

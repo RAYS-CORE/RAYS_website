@@ -9,23 +9,40 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SpyRouteImport } from './routes/spy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as GridRouteImport } from './routes/grid'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DocsIndexRouteImport } from './routes/docs.index'
 import { Route as DocsTroubleshootingRouteImport } from './routes/docs.troubleshooting'
+import { Route as DocsStudioRouteImport } from './routes/docs.studio'
+import { Route as DocsSpyRouteImport } from './routes/docs.spy'
 import { Route as DocsSkillsRouteImport } from './routes/docs.skills'
 import { Route as DocsQuickstartRouteImport } from './routes/docs.quickstart'
 import { Route as DocsPublishingRouteImport } from './routes/docs.publishing'
 import { Route as DocsMcpRouteImport } from './routes/docs.mcp'
 import { Route as DocsInstallRouteImport } from './routes/docs.install'
+import { Route as DocsGridRouteImport } from './routes/docs.grid'
+import { Route as DocsFogrRouteImport } from './routes/docs.fogr'
 import { Route as DocsCommandsRouteImport } from './routes/docs.commands'
 import { Route as DocsArchitectureRouteImport } from './routes/docs.architecture'
+import { Route as DocsAmdRouteImport } from './routes/docs.amd'
 
+const SpyRoute = SpyRouteImport.update({
+  id: '/spy',
+  path: '/spy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GridRoute = GridRouteImport.update({
+  id: '/grid',
+  path: '/grid',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocsRoute = DocsRouteImport.update({
@@ -53,6 +70,16 @@ const DocsTroubleshootingRoute = DocsTroubleshootingRouteImport.update({
   path: '/troubleshooting',
   getParentRoute: () => DocsRoute,
 } as any)
+const DocsStudioRoute = DocsStudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsSpyRoute = DocsSpyRouteImport.update({
+  id: '/spy',
+  path: '/spy',
+  getParentRoute: () => DocsRoute,
+} as any)
 const DocsSkillsRoute = DocsSkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
@@ -78,6 +105,16 @@ const DocsInstallRoute = DocsInstallRouteImport.update({
   path: '/install',
   getParentRoute: () => DocsRoute,
 } as any)
+const DocsGridRoute = DocsGridRouteImport.update({
+  id: '/grid',
+  path: '/grid',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsFogrRoute = DocsFogrRouteImport.update({
+  id: '/fogr',
+  path: '/fogr',
+  getParentRoute: () => DocsRoute,
+} as any)
 const DocsCommandsRoute = DocsCommandsRouteImport.update({
   id: '/commands',
   path: '/commands',
@@ -88,33 +125,52 @@ const DocsArchitectureRoute = DocsArchitectureRouteImport.update({
   path: '/architecture',
   getParentRoute: () => DocsRoute,
 } as any)
+const DocsAmdRoute = DocsAmdRouteImport.update({
+  id: '/amd',
+  path: '/amd',
+  getParentRoute: () => DocsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
   '/docs': typeof DocsRouteWithChildren
+  '/grid': typeof GridRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spy': typeof SpyRoute
+  '/docs/amd': typeof DocsAmdRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/commands': typeof DocsCommandsRoute
+  '/docs/fogr': typeof DocsFogrRoute
+  '/docs/grid': typeof DocsGridRoute
   '/docs/install': typeof DocsInstallRoute
   '/docs/mcp': typeof DocsMcpRoute
   '/docs/publishing': typeof DocsPublishingRoute
   '/docs/quickstart': typeof DocsQuickstartRoute
   '/docs/skills': typeof DocsSkillsRoute
+  '/docs/spy': typeof DocsSpyRoute
+  '/docs/studio': typeof DocsStudioRoute
   '/docs/troubleshooting': typeof DocsTroubleshootingRoute
   '/docs/': typeof DocsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
+  '/grid': typeof GridRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spy': typeof SpyRoute
+  '/docs/amd': typeof DocsAmdRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/commands': typeof DocsCommandsRoute
+  '/docs/fogr': typeof DocsFogrRoute
+  '/docs/grid': typeof DocsGridRoute
   '/docs/install': typeof DocsInstallRoute
   '/docs/mcp': typeof DocsMcpRoute
   '/docs/publishing': typeof DocsPublishingRoute
   '/docs/quickstart': typeof DocsQuickstartRoute
   '/docs/skills': typeof DocsSkillsRoute
+  '/docs/spy': typeof DocsSpyRoute
+  '/docs/studio': typeof DocsStudioRoute
   '/docs/troubleshooting': typeof DocsTroubleshootingRoute
   '/docs': typeof DocsIndexRoute
 }
@@ -123,14 +179,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/agent': typeof AgentRoute
   '/docs': typeof DocsRouteWithChildren
+  '/grid': typeof GridRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spy': typeof SpyRoute
+  '/docs/amd': typeof DocsAmdRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/commands': typeof DocsCommandsRoute
+  '/docs/fogr': typeof DocsFogrRoute
+  '/docs/grid': typeof DocsGridRoute
   '/docs/install': typeof DocsInstallRoute
   '/docs/mcp': typeof DocsMcpRoute
   '/docs/publishing': typeof DocsPublishingRoute
   '/docs/quickstart': typeof DocsQuickstartRoute
   '/docs/skills': typeof DocsSkillsRoute
+  '/docs/spy': typeof DocsSpyRoute
+  '/docs/studio': typeof DocsStudioRoute
   '/docs/troubleshooting': typeof DocsTroubleshootingRoute
   '/docs/': typeof DocsIndexRoute
 }
@@ -140,28 +203,42 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/docs'
+    | '/grid'
     | '/sitemap.xml'
+    | '/spy'
+    | '/docs/amd'
     | '/docs/architecture'
     | '/docs/commands'
+    | '/docs/fogr'
+    | '/docs/grid'
     | '/docs/install'
     | '/docs/mcp'
     | '/docs/publishing'
     | '/docs/quickstart'
     | '/docs/skills'
+    | '/docs/spy'
+    | '/docs/studio'
     | '/docs/troubleshooting'
     | '/docs/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agent'
+    | '/grid'
     | '/sitemap.xml'
+    | '/spy'
+    | '/docs/amd'
     | '/docs/architecture'
     | '/docs/commands'
+    | '/docs/fogr'
+    | '/docs/grid'
     | '/docs/install'
     | '/docs/mcp'
     | '/docs/publishing'
     | '/docs/quickstart'
     | '/docs/skills'
+    | '/docs/spy'
+    | '/docs/studio'
     | '/docs/troubleshooting'
     | '/docs'
   id:
@@ -169,14 +246,21 @@ export interface FileRouteTypes {
     | '/'
     | '/agent'
     | '/docs'
+    | '/grid'
     | '/sitemap.xml'
+    | '/spy'
+    | '/docs/amd'
     | '/docs/architecture'
     | '/docs/commands'
+    | '/docs/fogr'
+    | '/docs/grid'
     | '/docs/install'
     | '/docs/mcp'
     | '/docs/publishing'
     | '/docs/quickstart'
     | '/docs/skills'
+    | '/docs/spy'
+    | '/docs/studio'
     | '/docs/troubleshooting'
     | '/docs/'
   fileRoutesById: FileRoutesById
@@ -185,16 +269,32 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgentRoute: typeof AgentRoute
   DocsRoute: typeof DocsRouteWithChildren
+  GridRoute: typeof GridRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SpyRoute: typeof SpyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/spy': {
+      id: '/spy'
+      path: '/spy'
+      fullPath: '/spy'
+      preLoaderRoute: typeof SpyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grid': {
+      id: '/grid'
+      path: '/grid'
+      fullPath: '/grid'
+      preLoaderRoute: typeof GridRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/docs': {
@@ -232,6 +332,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsTroubleshootingRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/docs/studio': {
+      id: '/docs/studio'
+      path: '/studio'
+      fullPath: '/docs/studio'
+      preLoaderRoute: typeof DocsStudioRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/spy': {
+      id: '/docs/spy'
+      path: '/spy'
+      fullPath: '/docs/spy'
+      preLoaderRoute: typeof DocsSpyRouteImport
+      parentRoute: typeof DocsRoute
+    }
     '/docs/skills': {
       id: '/docs/skills'
       path: '/skills'
@@ -267,6 +381,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsInstallRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/docs/grid': {
+      id: '/docs/grid'
+      path: '/grid'
+      fullPath: '/docs/grid'
+      preLoaderRoute: typeof DocsGridRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/fogr': {
+      id: '/docs/fogr'
+      path: '/fogr'
+      fullPath: '/docs/fogr'
+      preLoaderRoute: typeof DocsFogrRouteImport
+      parentRoute: typeof DocsRoute
+    }
     '/docs/commands': {
       id: '/docs/commands'
       path: '/commands'
@@ -281,29 +409,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsArchitectureRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/docs/amd': {
+      id: '/docs/amd'
+      path: '/amd'
+      fullPath: '/docs/amd'
+      preLoaderRoute: typeof DocsAmdRouteImport
+      parentRoute: typeof DocsRoute
+    }
   }
 }
 
 interface DocsRouteChildren {
+  DocsAmdRoute: typeof DocsAmdRoute
   DocsArchitectureRoute: typeof DocsArchitectureRoute
   DocsCommandsRoute: typeof DocsCommandsRoute
+  DocsFogrRoute: typeof DocsFogrRoute
+  DocsGridRoute: typeof DocsGridRoute
   DocsInstallRoute: typeof DocsInstallRoute
   DocsMcpRoute: typeof DocsMcpRoute
   DocsPublishingRoute: typeof DocsPublishingRoute
   DocsQuickstartRoute: typeof DocsQuickstartRoute
   DocsSkillsRoute: typeof DocsSkillsRoute
+  DocsSpyRoute: typeof DocsSpyRoute
+  DocsStudioRoute: typeof DocsStudioRoute
   DocsTroubleshootingRoute: typeof DocsTroubleshootingRoute
   DocsIndexRoute: typeof DocsIndexRoute
 }
 
 const DocsRouteChildren: DocsRouteChildren = {
+  DocsAmdRoute: DocsAmdRoute,
   DocsArchitectureRoute: DocsArchitectureRoute,
   DocsCommandsRoute: DocsCommandsRoute,
+  DocsFogrRoute: DocsFogrRoute,
+  DocsGridRoute: DocsGridRoute,
   DocsInstallRoute: DocsInstallRoute,
   DocsMcpRoute: DocsMcpRoute,
   DocsPublishingRoute: DocsPublishingRoute,
   DocsQuickstartRoute: DocsQuickstartRoute,
   DocsSkillsRoute: DocsSkillsRoute,
+  DocsSpyRoute: DocsSpyRoute,
+  DocsStudioRoute: DocsStudioRoute,
   DocsTroubleshootingRoute: DocsTroubleshootingRoute,
   DocsIndexRoute: DocsIndexRoute,
 }
@@ -314,7 +459,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgentRoute: AgentRoute,
   DocsRoute: DocsRouteWithChildren,
+  GridRoute: GridRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SpyRoute: SpyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

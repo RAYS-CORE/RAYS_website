@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Background3D } from "@/components/Background3D";
 import { TopNav } from "@/components/TopNav";
-import { ArrowRight, Heart, Sparkles, Cpu, Users, Boxes } from "lucide-react";
-import productCompute from "@/assets/product-compute.jpg";
+import { ArrowRight, Heart, Sparkles, Cpu, Eye, Network } from "lucide-react";
 import productModels from "@/assets/product-models.jpg";
-import productCommunity from "@/assets/product-community.jpg";
+import raysGrid from "@/assets/rays-grid.jpg";
+import raysSpy from "@/assets/rays-spy.jpg";
 import missionCommons from "@/assets/mission-commons.jpg";
-import { GITHUB_ORG_URL, PATREON_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +44,7 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="snap-section-hero flex items-center justify-center px-6 pt-28 pb-12">
+    <section className="snap-section flex items-center justify-center px-6 pt-28 pb-12">
       <div className="max-w-5xl w-full text-center space-y-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5" /> RAYS Foundation
@@ -158,20 +157,20 @@ const products = [
     href: "/agent",
   },
   {
-    title: "RAYS Compute",
-    tag: "Coming soon",
-    image: productCompute,
-    icon: Boxes,
-    desc: "A crowdfunded inference network. Free access, rate-limited, no API key gatekeeping.",
-    href: "/",
+    title: "RAYS Grid",
+    tag: "Federated fine-tuning",
+    image: raysGrid,
+    icon: Network,
+    desc: "Thousands of consumer GPUs training one model. Orthogonal SVD subspaces, zero collapse, non-destructive summation.",
+    href: "/grid",
   },
   {
-    title: "RAYS Commons",
-    tag: "Coming soon",
-    image: productCommunity,
-    icon: Users,
-    desc: "A community hub for skills, MCP servers, and open model recipes anyone can use.",
-    href: "/",
+    title: "RAYS Spy",
+    tag: "Agentic OSINT",
+    image: raysSpy,
+    icon: Eye,
+    desc: "Hundreds of OSINT tools — face, satellite, flight, CCTV, entity graph — behind one MCP-driven agent loop.",
+    href: "/spy",
   },
 ];
 
@@ -240,7 +239,7 @@ function Support() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
-            href={PATREON_URL}
+            href="https://www.patreon.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-4 rounded-xl text-lg font-semibold inline-flex items-center gap-3 hover:opacity-90 transition"
@@ -253,7 +252,7 @@ function Support() {
             <Heart className="h-5 w-5" /> Support on Patreon
           </a>
           <a
-            href={GITHUB_ORG_URL}
+            href="https://github.com/RAYS-CORE/RAYS-CORE"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-4 rounded-xl text-lg font-semibold glass hover:bg-white/10 transition"
